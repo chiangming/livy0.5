@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="livy-api" />
+        <module name="livy-client-common" />
+        <module name="livy-client-http" />
+        <module name="livy-core_2.10" />
+        <module name="livy-core_2.11" />
+        <module name="livy-examples" />
+        <module name="livy-integration-test" />
+        <module name="livy-repl_2.10" />
+        <module name="livy-repl_2.11" />
+        <module name="livy-rsc" />
+        <module name="livy-scala-api_2.10" />
+        <module name="livy-scala-api_2.11" />
+        <module name="livy-server" />
+        <module name="livy-test-lib" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="livy-api" target="1.7" />
+      <module name="livy-assembly" target="1.7" />
+      <module name="livy-client-common" target="1.7" />
+      <module name="livy-client-http" target="1.7" />
+      <module name="livy-core-parent" target="1.7" />
+      <module name="livy-core_2.10" target="1.7" />
+      <module name="livy-core_2.11" target="1.7" />
+      <module name="livy-coverage-report" target="1.7" />
+      <module name="livy-examples" target="1.7" />
+      <module name="livy-integration-test" target="1.7" />
+      <module name="livy-main" target="1.7" />
+      <module name="livy-python-api" target="1.7" />
+      <module name="livy-repl-parent" target="1.7" />
+      <module name="livy-repl_2.10" target="1.7" />
+      <module name="livy-repl_2.11" target="1.7" />
+      <module name="livy-rsc" target="1.7" />
+      <module name="livy-scala-api-parent" target="1.7" />
+      <module name="livy-scala-api_2.10" target="1.7" />
+      <module name="livy-scala-api_2.11" target="1.7" />
+      <module name="livy-server" target="1.7" />
+      <module name="livy-test-lib" target="1.7" />
+      <module name="multi-scala-project-root" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

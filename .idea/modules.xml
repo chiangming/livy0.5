@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api/livy-api.iml" filepath="$PROJECT_DIR$/api/livy-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/assembly/livy-assembly.iml" filepath="$PROJECT_DIR$/assembly/livy-assembly.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client-common/livy-client-common.iml" filepath="$PROJECT_DIR$/client-common/livy-client-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client-http/livy-client-http.iml" filepath="$PROJECT_DIR$/client-http/livy-client-http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/livy-core-parent.iml" filepath="$PROJECT_DIR$/core/livy-core-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/scala-2.10/livy-core_2.10.iml" filepath="$PROJECT_DIR$/core/scala-2.10/livy-core_2.10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/scala-2.11/livy-core_2.11.iml" filepath="$PROJECT_DIR$/core/scala-2.11/livy-core_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coverage/livy-coverage-report.iml" filepath="$PROJECT_DIR$/coverage/livy-coverage-report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/livy-examples.iml" filepath="$PROJECT_DIR$/examples/livy-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/integration-test/livy-integration-test.iml" filepath="$PROJECT_DIR$/integration-test/livy-integration-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/livy-main.iml" filepath="$PROJECT_DIR$/livy-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/python-api/livy-python-api.iml" filepath="$PROJECT_DIR$/python-api/livy-python-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repl/livy-repl-parent.iml" filepath="$PROJECT_DIR$/repl/livy-repl-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repl/scala-2.10/livy-repl_2.10.iml" filepath="$PROJECT_DIR$/repl/scala-2.10/livy-repl_2.10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repl/scala-2.11/livy-repl_2.11.iml" filepath="$PROJECT_DIR$/repl/scala-2.11/livy-repl_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rsc/livy-rsc.iml" filepath="$PROJECT_DIR$/rsc/livy-rsc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scala-api/livy-scala-api-parent.iml" filepath="$PROJECT_DIR$/scala-api/livy-scala-api-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scala-api/scala-2.10/livy-scala-api_2.10.iml" filepath="$PROJECT_DIR$/scala-api/scala-2.10/livy-scala-api_2.10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scala-api/scala-2.11/livy-scala-api_2.11.iml" filepath="$PROJECT_DIR$/scala-api/scala-2.11/livy-scala-api_2.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/livy-server.iml" filepath="$PROJECT_DIR$/server/livy-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-lib/livy-test-lib.iml" filepath="$PROJECT_DIR$/test-lib/livy-test-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scala/multi-scala-project-root.iml" filepath="$PROJECT_DIR$/scala/multi-scala-project-root.iml" />
+    </modules>
+  </component>
+</project>

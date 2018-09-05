@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="HydraSettings">
+    <option name="hydraStorePath" value="D:\livyproj\livy0.5\livy-0.5.0-incubating-src\.hydra\idea" />
+    <option name="noOfCores" value="4" />
+    <option name="projectRoot" value="D:\livyproj\livy0.5\livy-0.5.0-incubating-src" />
+    <option name="sourcePartitioner" value="auto" />
+  </component>
+</project>
