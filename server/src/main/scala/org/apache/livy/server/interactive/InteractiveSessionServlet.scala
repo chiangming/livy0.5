@@ -18,19 +18,19 @@
 package org.apache.livy.server.interactive
 
 import java.net.URI
+
 import javax.servlet.http.HttpServletRequest
 
 import scala.collection.JavaConverters._
 import scala.concurrent._
 import scala.concurrent.duration._
-
 import org.json4s.jackson.Json4sScalaModule
 import org.scalatra._
 import org.scalatra.servlet.FileUploadSupport
-
 import org.apache.livy.{CompletionRequest, ExecuteRequest, JobHandle, LivyConf, Logging}
 import org.apache.livy.client.common.HttpMessages
 import org.apache.livy.client.common.HttpMessages._
+import org.apache.livy.rsc.driver.Statement
 import org.apache.livy.server.{AccessManager, SessionServlet}
 import org.apache.livy.server.recovery.SessionStore
 import org.apache.livy.sessions._
@@ -114,34 +114,27 @@ class InteractiveSessionServlet(
   val getStatement = get("/:id/statements/:statementId") {
     withViewAccessSession { session =>
       val statementId = params("statementId").toInt
-
       session.getStatement(statementId).getOrElse(NotFound("Statement not found"))
     }
   }
 
+  //give a statement, return a result json soon
   jpost[ExecuteRequest]("/:id/statements") { req =>
     withModifyAccessSession { session =>
       val statement = session.executeStatement(req)
-
-      val returnJson = Created(statement,
-        headers = Map(
-          "Location" -> url(getStatement,
-            "id" -> session.id.toString,
-            "statementId" -> statement.id.toString)))
-      println(returnJson.headers)
+      var flagSuccess = false
+      var returnJson = session.getStatement(statement.id).getOrElse("Statement not found")
+      while(!flagSuccess) {
+        println("querying.....")
+        returnJson = session.getStatement(statement.id).getOrElse("Statement not found")
+        val method = returnJson.getClass.getMethod("getState")
+        val value = method.invoke(returnJson)
+        if(!(value.equals("waiting") || value.equals("running"))) {
+          flagSuccess = true
+        }
+      }
       returnJson
     }
-    /////////////////////////////////////////////
-//    println("post statements--->get statements result")
-//    get("/:id/statements/:statementId") {
-//      println("get")
-//      withViewAccessSession { session =>
-//
-//        session.getStatement(session.id).getOrElse(NotFound("Statement not found"))
-//        println(session.state)
-//      }
-//    }
-    ////////////////////////////////////////////
   }
 
   jpost[CompletionRequest]("/:id/completion") { req =>

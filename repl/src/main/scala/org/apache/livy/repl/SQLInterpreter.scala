@@ -103,7 +103,7 @@ class SQLInterpreter(
       val jRows = Extraction.decompose(rows)
 
       Interpreter.ExecuteSuccess(
-        APPLICATION_JSON -> (("schema" -> jSchema) ~ ("data_Test" -> jRows)))
+        APPLICATION_JSON -> (("schema" -> jSchema) ~ ("data" -> jRows)))
     } catch {
       case e: InvocationTargetException =>
         warn(s"Fail to execute query $code", e.getTargetException)

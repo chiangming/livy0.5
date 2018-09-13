@@ -56,4 +56,9 @@ public class Statement {
       this.progress = p;
     }
   }
+  /////////////////////////////////////////
+  public String getState() {
+    return this.state.toString();
+  }
+  ////////////////////////////////////////
 }

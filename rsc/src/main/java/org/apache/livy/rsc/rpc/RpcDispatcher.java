@@ -64,9 +64,6 @@ public abstract class RpcDispatcher extends SimpleChannelInboundHandler<Object> 
 
   @Override
   protected final void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-    //////////////////////////////////////////////////////
-    System.out.println("channelRead0---handlecall");
-    /////////////////////////////////////////////////////
     if (lastHeader == null) {
       if (!(msg instanceof Rpc.MessageHeader)) {
         LOG.warn("[{}] Expected RPC header, got {} instead.", name(),
@@ -78,6 +75,8 @@ public abstract class RpcDispatcher extends SimpleChannelInboundHandler<Object> 
       LOG.debug("[{}] Received RPC message: type={} id={} payload={}", name(),
         lastHeader.type, lastHeader.id, msg != null ? msg.getClass().getName() : null);
       try {
+        /////////////////////////////////////////////////
+        System.out.println("lastHeader.type--->"+ lastHeader.type);
         switch (lastHeader.type) {
         case CALL:
           handleCall(ctx, msg);
