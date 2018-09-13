@@ -123,12 +123,25 @@ class InteractiveSessionServlet(
     withModifyAccessSession { session =>
       val statement = session.executeStatement(req)
 
-      Created(statement,
+      val returnJson = Created(statement,
         headers = Map(
           "Location" -> url(getStatement,
             "id" -> session.id.toString,
             "statementId" -> statement.id.toString)))
+      println(returnJson.headers)
+      returnJson
     }
+    /////////////////////////////////////////////
+//    println("post statements--->get statements result")
+//    get("/:id/statements/:statementId") {
+//      println("get")
+//      withViewAccessSession { session =>
+//
+//        session.getStatement(session.id).getOrElse(NotFound("Statement not found"))
+//        println(session.state)
+//      }
+//    }
+    ////////////////////////////////////////////
   }
 
   jpost[CompletionRequest]("/:id/completion") { req =>

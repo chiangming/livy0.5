@@ -64,6 +64,9 @@ public abstract class RpcDispatcher extends SimpleChannelInboundHandler<Object> 
 
   @Override
   protected final void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    //////////////////////////////////////////////////////
+    System.out.println("channelRead0---handlecall");
+    /////////////////////////////////////////////////////
     if (lastHeader == null) {
       if (!(msg instanceof Rpc.MessageHeader)) {
         LOG.warn("[{}] Expected RPC header, got {} instead.", name(),

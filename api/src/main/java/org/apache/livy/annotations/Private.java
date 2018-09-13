@@ -25,6 +25,12 @@ import java.lang.annotation.RetentionPolicy;
  * Indicates an API that is considered private to Livy and should not be used by client
  * applications.
  */
+/*
+* https://www.cnblogs.com/liangweiping/p/3837332.html
+* define a user annotation:Private
+* @Documented:this annotation is contained by Documented.
+* @Retention(RetentionPolicy.CLASS):this annotation is contained by class file, but not in runtime.
+* */
 @Documented
 @Retention(RetentionPolicy.CLASS)
 public @interface Private { }

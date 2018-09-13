@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="Maven 1" modules="livy-core_2.10,livy-main,livy-core_2.11,livy-api,livy-client-http,livy-scala-api_2.11,livy-repl_2.11,multi-scala-project-root,livy-assembly,livy-rsc,livy-repl_2.10,livy-server,livy-integration-test,livy-scala-api_2.10,livy-test-lib,livy-examples,livy-repl-parent,livy-python-api,livy-client-common,livy-core-parent,livy-scala-api-parent,livy-coverage-report">
+    <profile name="Maven 1" modules="livy-repl-parent,livy-rsc,livy-core-parent,livy-client-common,livy-scala-api-parent,livy-examples,livy-core_2.10,livy-test-lib,livy-repl_2.10,livy-client-http,livy-scala-api_2.10,livy-python-api,livy-main,multi-scala-project-root,livy-server,livy-core_2.11,livy-repl_2.11,livy-coverage-report,livy-integration-test,livy-api,livy-assembly,livy-scala-api_2.11">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <option name="featureWarnings" value="true" />

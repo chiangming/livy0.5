@@ -74,6 +74,7 @@ class SQLInterpreter(
   override def kind: String = "sql"
 
   override def start(): Unit = {
+    warn("SQLInterpreter--->start")
     require(!sparkEntries.sc().sc.isStopped)
 
     val sparkVersion = sparkConf.getInt("spark.livy.spark_major_version", 1)
@@ -86,6 +87,7 @@ class SQLInterpreter(
 
   override protected[repl] def execute(code: String): Interpreter.ExecuteResponse = {
     try {
+      warn("SQLInterpreter--->execute")
       val result = spark.getClass.getMethod("sql", classOf[String]).invoke(spark, code)
 
       // Get the schema info
@@ -101,7 +103,7 @@ class SQLInterpreter(
       val jRows = Extraction.decompose(rows)
 
       Interpreter.ExecuteSuccess(
-        APPLICATION_JSON -> (("schema" -> jSchema) ~ ("data" -> jRows)))
+        APPLICATION_JSON -> (("schema" -> jSchema) ~ ("data_Test" -> jRows)))
     } catch {
       case e: InvocationTargetException =>
         warn(s"Fail to execute query $code", e.getTargetException)

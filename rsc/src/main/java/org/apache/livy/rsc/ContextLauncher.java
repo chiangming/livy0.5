@@ -112,7 +112,7 @@ class ContextLauncher {
         }
       });
 
-      this.child = startDriver(conf, promise);
+      this.child = startDriver(conf, promise);//------------------------------------
 
       // Set up a timeout to fail the promise if we don't hear back from the context
       // after a configurable timeout.
