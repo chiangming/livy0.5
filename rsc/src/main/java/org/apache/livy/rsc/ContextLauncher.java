@@ -97,6 +97,7 @@ class ContextLauncher {
       String replMode = conf.get("repl");
       boolean repl = replMode != null && replMode.equals("true");
 
+      //livy server: address, port
       conf.set(LAUNCHER_ADDRESS, factory.getServer().getAddress());
       conf.set(LAUNCHER_PORT, factory.getServer().getPort());
       conf.set(CLIENT_ID, clientId);
@@ -122,7 +123,9 @@ class ContextLauncher {
           connectTimeout(handler);
         }
       };
+
       this.timeout = factory.getServer().getEventLoopGroup().schedule(timeoutTask,
+
         conf.getTimeAsMs(RPC_CLIENT_HANDSHAKE_TIMEOUT), TimeUnit.MILLISECONDS);
     } catch (Exception e) {
       dispose(true);
@@ -229,6 +232,10 @@ class ContextLauncher {
       launcher.setAppResource("spark-internal");
       launcher.setPropertiesFile(confFile.getAbsolutePath());
       launcher.setMainClass(RSCDriverBootstrapper.class.getName());
+
+      //---------------------------------------------------------
+        System.out.println("setMainClass");
+      //---------------------------------------------------------
 
       if (conf.get(PROXY_USER) != null) {
         launcher.addSparkArg("--proxy-user", conf.get(PROXY_USER));

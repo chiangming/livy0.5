@@ -78,6 +78,7 @@ object InteractiveSession extends Logging {
       val conf = SparkApp.prepareSparkConf(appTag, livyConf, prepareConf(
         request.conf, request.jars, request.files, request.archives, request.pyFiles, livyConf))
 
+      //this step will read hive-site.xml
       val builderProperties = prepareBuilderProp(conf, request.kind, livyConf)
 
       val userOpts: Map[String, Option[String]] = Map(
@@ -102,14 +103,21 @@ object InteractiveSession extends Logging {
         .setConf("livy.client.session-id", id.toString)
         .setConf(RSCConf.Entry.DRIVER_CLASS.key(), "org.apache.livy.repl.ReplDriver")
         .setConf(RSCConf.Entry.PROXY_USER.key(), proxyUser.orNull)
+        //------------------------------------------------------------
+        .setConf("livy.client.appTag-sessionGroup", appTag.toString)
+        //------------------------------------------------------------
         .setURI(new URI("rsc:/"))
+
+      //------------------------------
+      println("InteractiveSession.create")
+      //------------------------------
 
       Option(builder.build().asInstanceOf[RSCClient])
     }
 
     new InteractiveSession(
       id,
-      None,
+      None,//appID
       appTag,
       client,
       SessionState.Starting,

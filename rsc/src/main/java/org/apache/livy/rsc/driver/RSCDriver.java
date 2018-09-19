@@ -325,11 +325,17 @@ public class RSCDriver extends BaseProtocol {
       initializeServer();
 
       SparkEntries entries = initializeSparkEntries();
+      LOG.warn("add a new sparkcontext");
+      LOG.warn("Clients num is " + clients.size());
       synchronized (jcLock) {
         jc = new JobContextImpl(entries, localTmpDir, this);
         jcLock.notifyAll();
       }
-
+      //--------------------------------------
+//      Thread current = Thread.currentThread();
+//      current.sleep(20000000);
+      LOG.warn("Thread run");
+      //--------------------------------------
       synchronized (jcLock) {
         for (JobWrapper<?> job : jobQueue) {
           submit(job);
@@ -341,7 +347,7 @@ public class RSCDriver extends BaseProtocol {
         try {
           while (running) {
             shutdownLock.wait();
-          }
+          } 
         } catch (InterruptedException ie) {
           // Nothing to do.
         }

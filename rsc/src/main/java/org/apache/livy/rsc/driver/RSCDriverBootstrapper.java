@@ -24,9 +24,13 @@ import java.io.Reader;
 import java.util.Properties;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import org.apache.log4j.PropertyConfigurator;
 import org.apache.spark.SparkConf;
 
 import org.apache.livy.rsc.RSCConf;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static org.apache.livy.rsc.RSCConf.Entry.*;
 
 /**
@@ -37,6 +41,8 @@ import static org.apache.livy.rsc.RSCConf.Entry.*;
  * a SparkConf and a RSCConf.
  */
 public final class RSCDriverBootstrapper {
+
+  private static final Logger LOG = LoggerFactory.getLogger(RSCDriverBootstrapper.class);
 
   public static void main(String[] args) throws Exception {
     Properties props;
@@ -83,6 +89,7 @@ public final class RSCDriverBootstrapper {
     if (driverClass == null) {
       driverClass = RSCDriver.class.getName();
     }
+
 
     RSCDriver driver = (RSCDriver) Thread.currentThread()
       .getContextClassLoader()

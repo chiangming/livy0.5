@@ -52,6 +52,9 @@ class InteractiveSessionServlet(
 
   override protected def createSession(req: HttpServletRequest): InteractiveSession = {
     val createRequest = bodyAs[CreateInteractiveRequest](req)
+    //-------------------------------------------------------
+    println("create Session :" + createRequest)
+    //-------------------------------------------------------
     val proxyUser = checkImpersonation(createRequest.proxyUser, req)
     InteractiveSession.create(
       sessionManager.nextId(),
